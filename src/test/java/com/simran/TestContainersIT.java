@@ -13,10 +13,10 @@ import redis.clients.jedis.Jedis;
 public class TestContainersIT
 {
     public static final int REDIS_PORT = 6379;
-    final DockerImageName REDIS_IMAGE = DockerImageName.parse("redis:7.0.5");
+    static final DockerImageName REDIS_IMAGE = DockerImageName.parse("redis:7.0.5");
 
     @Container
-    final GenericContainer<?> redis = new GenericContainer<>(REDIS_IMAGE).withExposedPorts(REDIS_PORT);
+    static final GenericContainer<?> redis = new GenericContainer<>(REDIS_IMAGE).withExposedPorts(REDIS_PORT);
 
     @Test
     public void testRedisConnection()
